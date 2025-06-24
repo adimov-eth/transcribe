@@ -1,0 +1,59 @@
+{
+  "name": "audio-transcribe",
+  "version": "1.0.0",
+  "main": "dist/lib/index.js",
+  "bin": {
+    "transcribe": "dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "npm run build && node dist/cli/index.js",
+    "dev:api": "npm run build && node dist/microservice/index.js",
+    "transcribe": "npm run build && node dist/transcribe.js",
+    "start:api": "node dist/microservice/index.js",
+    "docker:build": "docker build -t audio-transcribe-api .",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "transcription",
+    "audio",
+    "whisper",
+    "openai",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "description": "Audio transcription CLI and library using OpenAI Whisper API",
+  "dependencies": {
+    "@types/bull": "^3.15.9",
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/glob": "^8.1.0",
+    "@types/morgan": "^1.9.9",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.15.30",
+    "@types/uuid": "^10.0.0",
+    "axios": "^1.9.0",
+    "bull": "^4.16.5",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "form-data": "^4.0.3",
+    "glob": "^11.0.2",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.1",
+    "openai": "^5.1.1",
+    "ora": "^8.2.0",
+    "redis": "^5.5.5",
+    "socket.io": "^4.8.1",
+    "typescript": "^5.8.3",
+    "uuid": "^11.1.0",
+    "winston": "^3.17.0"
+  }
+}

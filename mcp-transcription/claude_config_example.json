@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "audio-transcription": {
+      "command": "node",
+      "args": ["./dist/index.js"],
+      "cwd": "/Users/adimov/Developer/medach/mcp-transcription",
+      "env": {
+        "OPENAI_API_KEY": "your-openai-api-key-here",
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}

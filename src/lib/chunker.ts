@@ -44,12 +44,12 @@ export class AudioChunker {
 
     for (let i = 0; i < totalChunks; i++) {
       const startTime = i * this.chunkDuration;
-      const chunkPath = path.join(finalOutputDir, `chunk_${i}${ext}`);
+      const chunkPath = path.join(finalOutputDir, `chunk_${i}.mp3`);
       const actualDuration = Math.min(this.chunkDuration, duration - startTime);
 
       try {
         await execAsync(
-          `ffmpeg -i "${filePath}" -ss ${startTime} -t ${actualDuration} -c copy "${chunkPath}" -y`
+          `ffmpeg -i "${filePath}" -ss ${startTime} -t ${actualDuration} -acodec mp3 -ab 128k "${chunkPath}" -y`
         );
 
         chunks.push({
